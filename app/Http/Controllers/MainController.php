@@ -4,12 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Degrees;
+use App\Models\Movies;
 
-class MainController extends Controller
-{
-    public function home() {
+class MainController extends Controller{
 
-        return view('pages.home');
+    public function home()
+    {
+
+
+        $movies = Movies::all();
+
+        $data = [
+
+            'movies' => $movies
+        ];
+
+        return view('pages.home', $data);
     }
 }
